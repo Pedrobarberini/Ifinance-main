@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    font-family: 'Istok Web', sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.logo{
+    width: 300px;
+    height: 53.613px;
+    flex-shrink: 0;    
+}
+.bottom{
+    width: 800px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background:linear-gradient(180deg, white 0%, #DFE6EC 47%, #003566 100%);
+}
+
+.ifinance{
+    width: 500px;
+    height:377.44px;
+    left: 150px;
+    top: 284px;
+    position: absolute;    
+    
+}
+
+.headline {
+    width: 557px;
+    height: 73px;
+    position: absolute;
+    top: 667px;
+    left: 122px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-family: 'Istok Web', sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.form-container {
+    width: 545px;
+    height: 891px;
+    position: absolute;
+    top: 90px;
+    left: 851px;
+    
+}
+
+.form-container h2 {
+    color: #003566;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.user-form fieldset {
+    border: none;
+    margin-top: 20px;
+}
+
+.user-form label {
+    display: block;
+    font-family: 'Arimo Hebrew Subset', sans-serif;
+    font-size: 12px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.user-form input, .user-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.37);
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+}
+
+.terms input {
+    margin-right: 10px;
+}
+
+.terms a {
+    color: #DF278D;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #003566;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #003566;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.icons {
+    position: absolute;
+    left: 1340px;
+}
+
+.icon {
+    width: 30px;
+    height: 24px;
+    margin-bottom: 10px;
+}
+/* Media Queries para Responsividade */
+
+/* Para tablets e telas menores */
+@media (max-width: 1024px) {
+    header {
+        padding: 10px; /* Reduz o padding em telas menores */
+        flex-direction: column; /* Muda a direção para coluna */
+    }
+
+    .bottom {
+        height: auto; /* Permite que a altura ajuste automaticamente */
+    }
+
+    .ifinance {
+        width: 70%; /* Ajusta a largura para 70% */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Centraliza horizontalmente */
+    }
+
+    .headline {
+        display: none;
+    }
+
+    .form-container {
+        width: 80%; /* Reduz a largura da form-container */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Centraliza horizontalmente */
+    }
+
+    .icons {
+        right: 10px; /* Ajusta para manter os ícones dentro da tela */
+        top: 20px;
+    }
+}
+
+/* Para telas de celular */
+@media (max-width: 768px) {
+    .logo {
+        width: 150px; /* Reduz o tamanho do logo para telas menores */
+    }
+
+    .form-container {
+        width: 95%; /* Ajusta para ocupar quase toda a largura */
+        top: 100px; /* Ajusta a posição superior */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Centraliza horizontalmente */
+    }
+
+    .headline {
+        font-size: 18px; /* Reduz ainda mais o tamanho da fonte */
+        width: 90%; /* Ajuste responsivo para ocupar 90% da largura */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Centraliza horizontalmente */
+    }
+
+    .icons {
+        position: static; /* Remove a posição absoluta */
+        display: flex;
+        justify-content: center; /* Centraliza os ícones */
+        margin-top: 20px; /* Adiciona espaçamento superior */
+    }
+}

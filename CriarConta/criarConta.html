@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">        
+        <section class="bottom"></section>
+        <header>            
+            <img class="ifinance" src="/assets/ifinance.jfif" alt="Logo iFinance">
+        </header>
+
+        <h1 class="headline">SOLUÇÕES E RESULTADOS AO SEU ALCANCE</h1>
+
+        <section class="form-container">
+            <img class="logo" src="/assets/logo.jfif" alt="logo ifinance">
+            <h2>Crie sua Conta Gratuita</h2>
+            
+            <form class="user-form">
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+                    
+                    <label for="first-name">Primeiro Nome*</label>
+                    <input type="text" id="first-name" name="first-name" required>
+
+                    <label for="last-name">Último Nome*</label>
+                    <input type="text" id="last-name" name="last-name" required>
+
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="password">Senha*</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <label for="confirm-password">Confirme sua Senha*</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+
+                    <label for="account-type">Tipo de Conta*</label>
+                    <select id="account-type" name="account-type" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="personal">Pessoal</option>
+                        <option value="business">Empresa</option>
+                    </select>
+                </fieldset>
+
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        Eu aceito os <a href="#">termos de serviço</a> e <a href="#">política de privacidade</a>.
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submit-btn" Criar> Conta Gratuita</button>
+            </form>
+
+            <footer>
+                <p>Já possui uma conta? <a href="login\login.html">Login</a></p>
+                <p><a href="#">Não recebeu o e-mail de confirmação?</a></p>
+            </footer>
+        </section>
+
+        <!-- <section class="icons">
+            <div class="icon" style="background-color: #CCCCCC"></div>
+            <div class="icon" style="background-color: #CCCCCC"></div>
+        </section> -->
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
