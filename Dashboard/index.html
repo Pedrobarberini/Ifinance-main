@@ -1,50 +1,62 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Controle</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard - Painel de Controle</title>
+    <link rel="stylesheet" href="../Pages/stylepages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="main-container">
         <div class="sidebar">
-            <div class="sidebar-background"></div>
             <div class="user-info">
-                <img class="user-avatar" src="/assets/Ellipse3.png" alt="Avatar do Usuário">
+                <img class="user-avatar" src="https://api.dicebear.com/8.x/initials/svg?seed=Finn" alt="Avatar do Usuário">
                 <div class="user-details">
                     <p class="user-name">Finn Rock</p>
                     <p class="user-email">finnrock@gmail.com</p>
                 </div>
             </div>
+
             <div class="sidebar-menu">
                 <div class="menu-item selected">
-                    <div class="menu-icon"></div>
-                    <span class="menu-text">Dashboard</span>
+                    <span>Dashboard</span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-text">Consulta</span>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-text">Transações</span>
-                </div>
-                <div class="menu-item">
-                    <span class="menu-text">Configurações</span>
-                </div>
+                <a href="../Pages/consulta.html" class="menu-item">
+                    <span>Consulta</span>
+                </a>
+                <a href="../Pages/transacoes.html" class="menu-item">
+                    <span>Transações</span>
+                </a>
+                <a href="../Pages/configuracoes.html" class="menu-item">
+                    <span>Configurações</span>
+                </a>
                 <div class="menu-item logout">
-                   <a href="../login/login.html">Log Out</a>
+                    <a href="../login/login.html">Log Out</a>
                 </div>
             </div>
         </div>
+
         <div class="content">
             <div class="header">
-                <div class="welcome-text">
-                    <h1>Bom dia, Finn</h1>
-                    <p>Bem-vindo de volta, é bom ter você aqui!</p>
+                <div class="header-content">
+                    <button class="menu-toggle" aria-label="Abrir menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="welcome-text">
+                        <h1>Bom dia, Finn</h1>
+                        <p>Bem-vindo de volta, é bom ter você aqui!</p>
+                    </div>
                 </div>
             </div>
+
             <div class="cards">
                 <div class="card">
                     <p class="card-title">Saldo Atual</p>
@@ -52,38 +64,46 @@
                 </div>
                 <div class="card">
                     <p class="card-title">Recebimentos do Mês</p>
-                    <p class="card-value">R$ 5.000,00</p>
+                    <p class="card-value text-success">R$ 5.000,00</p>
                 </div>
                 <div class="card">
                     <p class="card-title">Despesas do Mês</p>
-                    <p class="card-value">R$ 835,00</p>
+                    <p class="card-value text-danger">R$ 835,00</p>
                 </div>
             </div>
+
             <div class="transactions">
                 <h2>Últimas Transações</h2>
                 <div class="transaction-list">
                     <div class="transaction-item">
                         <span class="transaction-description">Mercado</span>
-                        <span class="transaction-value">R$ 110,00</span>
+                        <span class="transaction-value expense">-R$ 110,00</span>
                         <span class="transaction-method">À Vista</span>
-                        <span class="transaction-nature">Despesa</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
                     </div>
                     <div class="transaction-item">
                         <span class="transaction-description">Venda 01</span>
-                        <span class="transaction-value">R$200,00</span>
-                        <span class="transaction-method">À Vista</span>
-                        <span class="transaction-nature">Recebimento</span>
+                        <span class="transaction-value income">+R$ 200,00</span>
+                        <span class="transaction-method">PIX</span>
+                        <span class="transaction-nature income-badge">Receita</span>
                     </div>
                     <div class="transaction-item">
-                        <span class="transaction-description">Energia</span>
-                        <span class="transaction-value">R$ 135,00</span>
-                        <span class="transaction-method">À Vista</span>
-                        <span class="transaction-nature">Despesa</span>
+                        <span class="transaction-description">Conta de Energia</span>
+                        <span class="transaction-value expense">-R$ 135,00</span>
+                        <span class="transaction-method">Boleto</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
+                    </div>
+                     <div class="transaction-item">
+                        <span class="transaction-description">Plano de Internet</span>
+                        <span class="transaction-value expense">-R$ 99,00</span>
+                        <span class="transaction-method">Débito Automático</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="scriptDashBoard.js"></script>
 </body>
 
 </html>

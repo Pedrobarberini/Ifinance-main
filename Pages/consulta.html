@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta - Painel de Controle</title>
+    <link rel="stylesheet" href="stylepages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <img class="user-avatar" src="https://api.dicebear.com/8.x/initials/svg?seed=Finn" alt="Avatar do Usuário">
+                    <div class="user-details">
+                        <p class="user-name">Finn Rock</p>
+                        <p class="user-email">finnrock@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../Dashboard/index.html" class="menu-item">Dashboard</a>
+                <div class="menu-item selected">Consulta</div>
+                <a href="transacoes.html" class="menu-item">Transações</a>
+                <a href="configuracoes.html" class="menu-item">Configurações</a>
+                <div class="menu-item logout">
+                   <a href="../login/login.html">Log Out</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="header">
+                <div class="header-content">
+                    <button class="menu-toggle" aria-label="Abrir menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                    <div class="welcome-text">
+                        <h1>Página de Consulta</h1>
+                        <p>Filtre e busque por transações específicas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Filtros de Busca</h2>
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="description">Descrição</label>
+                            <input type="text" id="description" class="form-control" placeholder="Ex: Mercado, Salário">
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Tipo de Transação</label>
+                            <select id="type" class="form-control">
+                                <option value="">Todos</option>
+                                <option value="income">Receita</option>
+                                <option value="expense">Despesa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="start-date">Data Inicial</label>
+                            <input type="date" id="start-date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="end-date">Data Final</label>
+                            <input type="date" id="end-date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Filtrar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="transactions">
+                <h2>Resultados da Busca</h2>
+                <div class="transaction-list">
+                    <div class="transaction-item">
+                        <span class="transaction-description">Mercado</span>
+                        <span class="transaction-value expense">-R$ 110,00</span>
+                        <span class="transaction-method">À Vista</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
+                    </div>
+                     <div class="transaction-item">
+                        <span class="transaction-description">Venda de produto</span>
+                        <span class="transaction-value income">+R$ 80,00</span>
+                        <span class="transaction-method">PIX</span>
+                        <span class="transaction-nature income-badge">Receita</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

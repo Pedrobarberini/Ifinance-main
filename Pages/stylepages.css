@@ -1,0 +1,474 @@
+
+:root {
+    /* Cores Principais */
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --sidebar-bg: #111827; /* Um tom mais escuro para o sidebar */
+    --main-bg: #f9fafb;
+    --card-bg: #ffffff;
+    
+    /* Cores de Texto */
+    --text-light: #f9fafb;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    
+    /* Cores de Feedback */
+    --income-color: #10b981;
+    --expense-color: #ef4444;
+    --border-color: #e5e7eb;
+
+    /* Tipografia */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /* Outras Variáveis */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    --sidebar-width: 260px;
+    --border-radius: 12px; /* Bordas mais arredondadas */
+    --transition-speed: 0.3s;
+}
+
+/* -----------------------------------------------------------------
+   2. Reset Global e Estilos Base
+   ----------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--text-dark);
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* -----------------------------------------------------------------
+   3. Estrutura Principal (Layout)
+   ----------------------------------------------------------------- */
+.main-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: var(--sidebar-bg);
+    color: var(--text-light);
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(-100%); /* Escondido por padrão em mobile */
+    transition: transform var(--transition-speed) ease-in-out;
+}
+
+.sidebar.visible {
+    transform: translateX(0);
+}
+
+.content {
+    width: 100%;
+    padding: 1.5rem;
+    transition: margin-left var(--transition-speed) ease-in-out;
+}
+
+/* -----------------------------------------------------------------
+   4. Componentes da Sidebar
+   ----------------------------------------------------------------- */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #374151;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.user-name {
+    font-weight: 600;
+}
+
+.user-email {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.sidebar-menu {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 3.0rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:not(.selected):not(.logout):hover {
+    background-color: #374151;
+}
+
+.menu-item.selected {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+}
+
+.menu-item.logout {
+    margin-top: auto; /* Empurra para o final */
+}
+
+.menu-item.logout:hover {
+    color: var(--primary-hover);
+}
+
+/* -----------------------------------------------------------------
+   5. Componentes do Conteúdo Principal
+   ----------------------------------------------------------------- */
+.header {
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.welcome-text h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.welcome-text p {
+    color: var(--text-muted);
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: block; /* Visível em mobile */
+    z-index: 1001; /* Fica acima do conteúdo */
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    margin: 5px 0;
+    border-radius: 3px;
+    transition: all var(--transition-speed) ease;
+}
+
+/* --- Cards --- */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão mobile */
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.card-title {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.card-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* --- Lista de Transações --- */
+.transactions h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.transaction-list {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.transaction-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    gap: 1rem;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-description {
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+.transaction-value {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.transaction-value.income { color: var(--income-color); }
+.transaction-value.expense { color: var(--expense-color); }
+
+.transaction-nature {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.income-badge { background-color: var(--income-color); }
+.expense-badge { background-color: var(--expense-color); }
+
+/* -----------------------------------------------------------------
+   6. Estilos de Formulário
+   ----------------------------------------------------------------- */
+.form-section {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.form-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--main-bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+}
+
+/* --- Botões --- */
+.btn {
+    padding: 0.8rem 1.75rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    box-shadow: 0 2px 5px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+}
+
+/* -----------------------------------------------------------------
+   7. Responsividade (Media Queries)
+   ----------------------------------------------------------------- */
+/* Para Tablets e Desktops */
+@media (min-width: 768px) {
+    .sidebar {
+        position: sticky; /* Fica fixo ao rolar a página */
+        transform: translateX(0); /* Sempre visível */
+    }
+
+    .content {
+        width: calc(100% - var(--sidebar-width));
+        padding: 2rem;
+    }
+
+    .menu-toggle {
+        display: none; /* Esconde o botão hamburger */
+    }
+
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Para telas um pouco maiores, ajusta o grid do formulário */
+@media (min-width: 1024px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .content {
+        padding: 2.5rem;
+    }
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--main-bg);
+    padding: 1.5rem;
+}
+
+.auth-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.auth-form .form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.auth-form .form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--main-bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-form .form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+.auth-form .form-actions {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.auth-form .form-actions .btn {
+    width: 100%;
+}
+
+.auth-form .form-actions .btn + .btn {
+    margin-top: 0.75rem;
+}
+
+.auth-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}

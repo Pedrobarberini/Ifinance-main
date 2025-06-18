@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transações - Painel de Controle</title>
+    <link rel="stylesheet" href="stylepages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-info">
+                    <img class="user-avatar" src="https://api.dicebear.com/8.x/initials/svg?seed=Finn" alt="Avatar do Usuário">
+                    <div class="user-details">
+                        <p class="user-name">Finn Rock</p>
+                        <p class="user-email">finnrock@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <a href="../Dashboard/index.html" class="menu-item">Dashboard</a>
+                <a href="consulta.html" class="menu-item">Consulta</a>
+                <div class="menu-item selected">Transações</div>
+                <a href="configuracoes.html" class="menu-item">Configurações</a>
+                <div class="menu-item logout">
+                   <a href="../login/login.html">Log Out</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="header">
+                <div class="header-content" style="align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                         <button class="menu-toggle" aria-label="Abrir menu">
+                            <span></span><span></span><span></span>
+                        </button>
+                        <div class="welcome-text">
+                            <h1>Todas as Transações</h1>
+                            <p>Gerencie suas receitas e despesas.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Adicionar Transação</button>
+                </div>
+            </div>
+            
+            <div class="transactions">
+                <div class="transaction-list">
+                    <div class="transaction-item">
+                        <span class="transaction-description">Salário</span>
+                        <span class="transaction-value income">+R$ 5.000,00</span>
+                        <span class="transaction-method">TED</span>
+                        <span class="transaction-nature income-badge">Receita</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span class="transaction-description">Aluguel</span>
+                        <span class="transaction-value expense">-R$ 1.500,00</span>
+                        <span class="transaction-method">Boleto</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span class="transaction-description">Venda 01</span>
+                        <span class="transaction-value income">+R$ 200,00</span>
+                        <span class="transaction-method">À Vista</span>
+                        <span class="transaction-nature income-badge">Receita</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span class="transaction-description">Energia</span>
+                        <span class="transaction-value expense">-R$ 135,00</span>
+                        <span class="transaction-method">À Vista</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span class="transaction-description">Mercado</span>
+                        <span class="transaction-value expense">-R$ 110,00</span>
+                        <span class="transaction-method">À Vista</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
+                    </div>
+                    <div class="transaction-item">
+                        <span class="transaction-description">Internet</span>
+                        <span class="transaction-value expense">-R$ 99,00</span>
+                        <span class="transaction-method">Débito Automático</span>
+                        <span class="transaction-nature expense-badge">Despesa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
